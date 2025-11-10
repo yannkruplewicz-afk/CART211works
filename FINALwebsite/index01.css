@@ -100,16 +100,16 @@ body.menu-open .pillar1 {
     .pillar1 {
         transform: scale(0.6);
         opacity: 0.5;
-        transform: translate(-15%, -75%) scale(0.6);
-
+        transform: translate(-15%, -80%) scale(0.6);
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
 }
 
-@media screen and (min-width: 3524px) {
+@media screen and (min-width: 3824px) {
     .pillar1 {
-        transform: translate(-25%, -95%) scale(0.4);
+        transform: translate(-25%, -100%) scale(0.4);
         opacity: 0.5;
-        transition: transform 0.1s ease, opacity 0.1s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease;
         /* faster for this breakpoint only */
     }
 }
