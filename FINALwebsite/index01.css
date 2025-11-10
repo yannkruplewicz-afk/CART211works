@@ -133,7 +133,7 @@ body.menu-open .pillar1 {
     position: relative;
     /* Only needed if you want to shift the element */
     left: 150px;
-    /* Optional: shift element slightly right */
+
 
     margin-right: 100px;
     /* THIS adds space on the right side */
