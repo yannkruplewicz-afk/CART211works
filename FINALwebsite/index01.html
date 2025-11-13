@@ -149,6 +149,7 @@
                 audio.volume = 0.18; // initial volume
             }
 
+
             // Save playback time every 0.5s
             setInterval(() => {
                 if (audio) {
@@ -162,6 +163,7 @@
 
                 if (isOpen) {
                     document.body.classList.add('menu-open'); // hide images
+
                 } else {
                     document.body.classList.remove('menu-open'); // show images again
                 }

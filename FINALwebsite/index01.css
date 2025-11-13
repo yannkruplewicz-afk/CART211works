@@ -11,6 +11,11 @@
     width: 100%;
     /* full width of wrapper */
     box-sizing: border-box;
+
+}
+
+body.menu-open .sub-nav {
+    display: none !important;
 }
 
 .sub-nav .item a {
