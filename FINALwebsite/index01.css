@@ -61,7 +61,7 @@ body.menu-open .pillar1 {
     position: absolute;
     left: 420;
     /* Stick to left edge of wrapper */
-    top: 80%;
+    top: 78%;
     /* Vertically center */
     transform: translateY(-50%);
     width: 10%;

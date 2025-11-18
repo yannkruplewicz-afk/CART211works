@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>What is Surveillance Capitalism ?</title>
     <meta name="description" content="Learn about what Surveillance Capitalism is about.">
     <meta property="og:title" content="Surveillance Capitalism">
@@ -78,6 +78,12 @@
             <h1>How does that affect us ?</h1>
 
         </article3><br>
+        <div class="podcast-player">
+            <audio controls>
+                <source src="assets/ebyt.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
 
 
         <section>
@@ -139,6 +145,12 @@
 
             </div>
         </section>
+        <!-- Footer -->
+        <footer>
+
+            <small><em>This Website was created as part of a school project. All content and design are copyright
+                    Yann Kruplewicz, student, 2025.</em></small>
+        </footer>
 
 
         <!-- Footer -->
@@ -162,53 +174,64 @@
             const hamburgerButton = document.querySelector('.hamburger-menu button');
             const closeButton = document.querySelector('.close-menu');
             const menu1 = document.querySelector('.menu1');
-            const audio = document.getElementById('background-audio');
+            const audio = document.querySelector('audio');
 
-            // Ensure audio starts with a reasonable volume
             if (audio) {
+                // --- Restore audio time and paused state ---
                 const savedTime = localStorage.getItem('audioTime');
-                if (savedTime) {
-                    audio.currentTime = parseFloat(savedTime);
+                const savedPaused = localStorage.getItem('audioPaused');
+
+                if (savedTime) audio.currentTime = parseFloat(savedTime);
+
+                if (savedPaused === 'true') {
+                    audio.pause();
+                } else {
+                    audio.play().catch(() => {
+                        console.log('Autoplay blocked by browser');
+                    });
                 }
-                audio.volume = 0.18; // initial volume
+
+                // --- Save audio time and paused state ---
+                const saveAudioState = () => {
+                    localStorage.setItem('audioTime', audio.currentTime);
+                    localStorage.setItem('audioPaused', audio.paused);
+                };
+
+                audio.addEventListener('timeupdate', saveAudioState);
+
+                // Extra safeguard: save every 0.5s
+                setInterval(saveAudioState, 500);
             }
 
-            // Save playback time every 0.5s
-            setInterval(() => {
-                if (audio) {
-                    localStorage.setItem('audioTime', audio.currentTime);
-                }
-            }, 500);
+            // --- Hamburger menu toggle ---
+            if (hamburgerButton && menu1) {
+                hamburgerButton.addEventListener('click', () => {
+                    const isOpen = menu1.classList.toggle('menu-deployed');
+                    document.body.classList.toggle('menu-open', isOpen);
+                });
+            }
 
-            // Toggle menu and hide/show images
-            hamburgerButton.addEventListener('click', () => {
-                const isOpen = menu1.classList.toggle('menu-deployed'); // toggle menu visibility
+            // --- Close menu explicitly ---
+            if (closeButton && menu1) {
+                closeButton.addEventListener('click', () => {
+                    menu1.classList.remove('menu-deployed');
+                    document.body.classList.remove('menu-open');
 
-                if (isOpen) {
-                    document.body.classList.add('menu-open'); // hide images
-                } else {
-                    document.body.classList.remove('menu-open'); // show images again
-                }
-            });
-
-            // Close menu explicitly with the × button
-            closeButton.addEventListener('click', () => {
-                menu1.classList.remove('menu-deployed');
-                document.body.classList.remove('menu-open'); // show images again
-
-                if (audio) {
-                    // Smoothly fade volume down
-                    let fadeAudio = setInterval(() => {
-                        if (audio.volume > 0.1) {
-                            audio.volume = Math.max(0.1, audio.volume - 0.05);
-                        } else {
-                            clearInterval(fadeAudio);
-                        }
-                    }, 100);
-                }
-            });
+                    // Smooth fade audio volume down
+                    if (audio) {
+                        const fadeInterval = setInterval(() => {
+                            if (audio.volume > 0.1) {
+                                audio.volume = Math.max(0.1, audio.volume - 0.05);
+                            } else {
+                                clearInterval(fadeInterval);
+                            }
+                        }, 100);
+                    }
+                });
+            }
         });
     </script>
+
     <!-- Next page arrow button -->
     <a href="index02.html" class="next-page-arrow">
         &#8595; <!-- down arrow; you can replace with ↑, →, or a Font Awesome icon -->

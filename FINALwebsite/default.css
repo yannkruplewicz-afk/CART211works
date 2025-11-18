@@ -42,6 +42,8 @@ body {
     /* stay on top of content */
 }
 
+
+
 .next-page-arrow:hover {
     transform: translateX(-50%) translateY(-5px);
     /* lift on hover */
@@ -53,7 +55,12 @@ body {
     width: 80%;
     max-width: 1400px;
     margin: 40px auto;
-    padding: 40px;
+
+    #wrapper {
+        padding: 40px 40px 0 40px;
+        /* bottom = 0 */
+    }
+
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(103, 44, 44, 0.15);
 }
@@ -101,7 +108,7 @@ body {
 /* Headband container */
 header {
     width: 100%;
-    background-color: #59554d57;
+    background-color: #715a2a57;
     /* dark band, change color as needed */
     padding: 1px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -144,6 +151,16 @@ article p {
     text-shadow: 2px 2px 4px rgba(234, 211, 0, 0.5);
 }
 
+article h2 {
+    line-height: 1.6;
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-style: italic;
+    color: rgb(228, 217, 217);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 4px rgba(234, 211, 0, 0.5);
+}
+
 article p2 {
     line-height: 1.6;
     font-size: 26px;
@@ -159,12 +176,25 @@ section {
 }
 
 footer {
-    margin: 20px 0 10px 0;
     font-size: 20px;
     font-weight: lighter;
     text-align: center;
     font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: antiquewhite;
+
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+
+    background-color: #5a472257;
+    border-radius: 0 0 12px 12px;
+    /* keep if you want rounded wrapper bottom */
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
+
 
 footer a {
     text-decoration: none;
@@ -367,6 +397,8 @@ nav {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+
 
 /* Hover effect (optional) */
 .books figure:hover img {
@@ -774,4 +806,347 @@ body.menu-open .books {
         width: 100%;
         height: auto;
     }
+}
+
+
+
+#wrapper2 {
+    background-color: #141414;
+    width: 80%;
+    max-width: 1400px;
+    margin: 40px auto;
+
+    #wrapper {
+        padding: 40px 40px 0 40px;
+        /* bottom = 0 */
+    }
+
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(103, 44, 44, 0.15);
+}
+
+.storie-container {
+    display: flex;
+    width: 100%;
+    gap: 0px;
+    /* smaller gap between left and right */
+
+}
+
+section2 {
+    display: flex;
+    justify-content: flex-start;
+    /* instead of space-between */
+    align-items: flex-start;
+    gap: 1px;
+    /* smaller gap */
+    width: 100%;
+    max-width: 1200px;
+    margin: 19px auto;
+}
+
+.storie-left3 {
+    flex: 2;
+    /* left takes twice the width */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: white;
+    margin-left: -65px;
+    /* offset wrapper padding */
+}
+
+.storie-right3 {
+    flex: 1;
+    /* right takes less space */
+    margin-top: 10px;
+    margin-right: 110px;
+    /* offset wrapper padding, closer to right edge */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Remove this block entirely:
+.storie-left3,
+.storie-right3 {
+    flex: 1;
+    padding: 0px;
+}
+*/
+
+
+
+
+/* Default images */
+.storie-right3 img {
+    width: 120%;
+    max-width: 500px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease,
+        filter 0.6s ease,
+        opacity 0.6s ease;
+}
+
+/* Make only im3 taller */
+.storie-right3 img.im3 {
+    height: 920px;
+    /* bigger height for im3 */
+}
+
+.storie-right3 figure {
+    position: relative;
+    /* parent for absolute hover-text */
+    overflow: hidden;
+    /* optional: hide overflow if text moves */
+}
+
+.storie-right3 .hover-text {
+    position: absolute;
+    bottom: 10px;
+    /* adjust vertical position */
+    left: 10px;
+    /* adjust horizontal position */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.storie-right3 figure:hover .hover-text {
+    opacity: 1;
+}
+
+body.menu-open .storie-right3,
+body.menu-open .books {
+    display: none !important;
+}
+
+/* ---- PODCAST PLAYER - Modern Design ---- */
+
+.podcast-player {
+    margin-top: 0px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.podcast-player:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+/* hide when menu opened */
+body.menu-open .podcast-player {
+    display: none !important;
+}
+
+/* Audio element styling */
+.podcast-player audio {
+    width: 60%;
+    padding: 10px;
+
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(234, 211, 0, 0.3);
+
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Subtle hover pulse */
+.podcast-player audio:hover {
+    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.35),
+        0 0 24px rgba(234, 211, 0, 0.4);
+    transform: scale(1.015);
+}
+
+
+/* Make all headings inside .storie-left3 block */
+.storie-left3 h1,
+.storie-left3 h2,
+.storie-left3 h3 {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    color: rgb(228, 217, 217);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.6;
+}
+
+/* Make all paragraph-like elements inside .storie-left3 block */
+.storie-left3 p {
+    display: block;
+    /* ensures stacking */
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 24px;
+    line-height: 1.6;
+    color: rgb(228, 217, 217);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 4px rgba(234, 211, 0, 0.5);
+}
+
+.storie-left3 p2 {
+    line-height: 1.6;
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: rgb(175, 175, 175);
+    font-style: italic;
+
+}
+
+
+.storie-left3 p,
+.storie-left3 p2,
+.storie-left3 h2 {
+    display: block;
+    width: 100%;
+    text-align: justify;
+    margin-bottom: 1.2em;
+    /* consistent spacing */
+}
+
+.big-text {
+    font-size: 1.5em;
+    /* or any size you want */
+    font-weight: bold;
+    /* optional */
+    color: #fff;
+    /* optional */
+}
+
+
+/* Style unordered and ordered lists inside .storie-left3 */
+.storie-left3 ul,
+.storie-left3 ol {
+    margin: 15px 0 20px 40px;
+    /* spacing around the list */
+    padding: 0;
+    /* remove default padding */
+    list-style-position: outside;
+    /* bullets/numbers outside the text */
+}
+
+.storie-left3 li {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    /* matches paragraph font size */
+    line-height: 1.6;
+    color: rgb(228, 217, 217);
+    /* same color as paragraphs */
+    text-shadow: 2px 2px 4px rgba(234, 211, 0, 0.5);
+    /* golden glow effect */
+    margin-bottom: 12px;
+    /* space between list items */
+}
+
+/* Optional: custom bullet style for ul */
+.storie-left3 ul li::marker {
+    color: #e6d300;
+    /* golden bullet */
+    font-size: 1.2em;
+}
+
+/* Optional: custom number style for ol */
+.storie-left3 ol li::marker {
+    color: #e6d300;
+    /* golden number */
+    font-weight: bold;
+}
+
+.storie-left3 .highlight-block {
+    background-color: rgba(20, 20, 20, 0.8);
+    /* dark semi-transparent block */
+    padding: 25px 30px;
+    /* space inside the block */
+    border-radius: 12px;
+    /* rounded corners like header/footer */
+    box-shadow: 0 4px 15px rgba(242, 79, 79, 0.3);
+    /* subtle shadow */
+    margin: 20px 0;
+    /* spacing above and below */
+}
+
+.storie-left3 .highlight-block b {
+    font-size: 1.3em;
+    /* slightly bigger for the heading */
+    color: rgb(228, 217, 217);
+}
+
+.storie-left3 .highlight-block ul,
+.storie-left3 .highlight-block ol {
+    margin: 15px 0 15px 40px;
+    padding: 0;
+}
+
+.storie-left3 .highlight-block li {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    line-height: 1.6;
+    color: rgb(228, 217, 217);
+    text-shadow: 2px 2px 4px rgba(234, 211, 0, 0.5);
+    margin-bottom: 12px;
+}
+
+.storie-left3 .highlight-block ul li::marker,
+.storie-left3 .highlight-block ol li::marker {
+    color: #e6d300;
+    /* golden marker */
+    font-size: 1.2em;
+}
+
+.short-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    /* typical phone width */
+    aspect-ratio: 9 / 16;
+    /* vertical video */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+.short-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.short-wrapper .hover-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px;
+    border-radius: 8px;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.short-wrapper:hover .hover-text {
+    opacity: 1;
 }
